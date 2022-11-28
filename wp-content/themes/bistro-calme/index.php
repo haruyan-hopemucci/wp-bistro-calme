@@ -12,15 +12,15 @@
 	<script src="<?= get_template_directory_uri(); ?>/assets/js/main.js"></script>
 </head>
 
-<body>
+<body <?= body_class(); ?>>
 	<header class="header">
 		<div class="header_inner">
 			<div class="header_logo">
-				<h1><a href="/"><img src="<?= get_template_directory_uri(); ?>/assets/img/common/logo@2x.png" alt="BISTRO CALME"></a></h1>
+				<h1><a href="<?= home_url(); ?>"><img src="<?= get_template_directory_uri(); ?>/assets/img/common/logo@2x.png" alt="BISTRO CALME"></a></h1>
 			</div>
 
 			<div class="header_desc">
-				<p>サイトのキャッチフレーズ</p>
+				<p><?= bloginfo('description'); ?></p>
 			</div>
 
 			<form class="header_search">
@@ -46,8 +46,7 @@
 			</ul>
 		</div>
 
-		<svg class="header_menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-			width="30" height="30" viewBox="0 0 30 30">
+		<svg class="header_menu" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" viewBox="0 0 30 30">
 			<defs>
 				<clipPath id="clip-path">
 					<rect width="30" height="30" fill="none" />
