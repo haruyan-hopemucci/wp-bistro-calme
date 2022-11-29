@@ -19,9 +19,7 @@
     </div>
 </footer>
 
-<link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-<script src="<?= get_template_directory_uri(); ?>/assets/js/home.js"></script>
+<?= wp_footer(); ?>
 
 </body>
 

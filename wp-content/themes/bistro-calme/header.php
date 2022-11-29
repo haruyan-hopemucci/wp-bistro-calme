@@ -7,12 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><?= bloginfo('name'); ?></title>
     <link href="<?= get_template_directory_uri(); ?>/assets/css/styles.min.css" rel="stylesheet">
-    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="<?= get_template_directory_uri(); ?>/assets/js/main.js"></script>
+    <?php
+    // Font Awesomeを重複して読み込まないようにする
+    wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.6.1/css/all.css');
+    // jqueryを重複して読み込まないようにする
+    wp_enqueue_script('jquery');
+    // main.jsを重複して読み込まないようにする
+    wp_enqueue_script('bistro-calme-main', get_template_directory_uri() . '/assets/js/main.js');
+    wp_head();
+    ?>
 </head>
 
 <body <?= body_class(); ?>>
+    <?= wp_body_open(); ?>
     <header class="header">
         <div class="header_inner">
             <div class="header_logo">
@@ -60,12 +67,21 @@
         </svg>
     </header>
 
-    <div class="jumbotron">
-        <div class="jumbotron_item" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/jumbotron-1@2x.jpg')"></div>
-        <div class="jumbotron_item" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/jumbotron-2@2x.jpg')"></div>
-        <div class="jumbotron_item" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/jumbotron-3@2x.jpg')"></div>
-    </div>
+    <?php
+    // jumbotronのビジュアルはhomeでしか表示しないようにする
+    if (is_home()) :
+    ?>
+        <div class="jumbotron">
+            <div class="jumbotron_item" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/jumbotron-1@2x.jpg')"></div>
+            <div class="jumbotron_item" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/jumbotron-2@2x.jpg')"></div>
+            <div class="jumbotron_item" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/jumbotron-3@2x.jpg')"></div>
+        </div>
+        <!-- 書籍ではfooter.phpにwp_enqueue_script等で書き直しているが、is_home内に直接埋めた方が手っ取り早い -->
+        <link href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script src="<?= get_template_directory_uri(); ?>/assets/js/home.js"></script>
 
+    <?php endif; ?>
     <section class="sec">
         <div class="container">
             <header class="sec_header">
