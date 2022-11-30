@@ -12,7 +12,11 @@
 						<article id="post-<?= the_ID() ?>" <?= post_class('news'); ?>>
 							<div class="news_pic">
 								<a href="<?= the_permalink(); ?>">
-									<img src="<?= get_template_directory_uri(); ?>/assets/img/home/news_img-1.jpg" alt="">
+									<?php if (has_post_thumbnail()) : ?>
+										<?= the_post_thumbnail('medium'); ?>
+									<?php else : ?>
+										<img src="<?= get_template_directory_uri(); ?>/assets/img/common/noimage_600x400.png" alt="no image">
+									<?php endif; ?>
 								</a>
 							</div>
 							<div class="news_meta">
