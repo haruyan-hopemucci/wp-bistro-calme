@@ -81,8 +81,3 @@
         <script src="<?= get_template_directory_uri(); ?>/assets/js/home.js"></script>
 
     <?php endif; ?>
-    <section class="sec">
-        <div class="container">
-            <header class="sec_header">
-                <h2 class="title">最新情報<span>NEWS</span></h2>
-            </header>
