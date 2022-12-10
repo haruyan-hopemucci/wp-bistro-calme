@@ -37,13 +37,14 @@
 
         <div class="header_links">
             <nav class="gnav">
-                <ul class="">
-                    <li><a href="#">HOME</a></li>
-                    <li><a href="#">わたしたちについて</a></li>
-                    <li><a href="#">アクセス</a></li>
-                    <li><a href="#">最新情報</a></li>
-                    <li><a href="#">お問い合わせ</a></li>
-                </ul>
+                <?= wp_nav_menu(
+                    array(
+                        'menu' => 'global-navigation',
+                        'menu_class' => '',
+                        'container' => 'false'
+                    )
+                )
+                ?>
             </nav>
 
             <ul class="header_sns">
