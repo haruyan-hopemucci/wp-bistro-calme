@@ -16,7 +16,11 @@
 		</div>
 
 		<p class="sec_btn">
-			<a href="" class="btn btn-default">最新情報の一覧<i class="fas fa-angle-right"></i></a>
+			<?php
+			$news = get_term_by('slug', 'news', 'category');
+			$news_link = get_term_link($news, 'category')
+			?>
+			<a href="<?= $news_link ?>" class="btn btn-default">最新情報の一覧<i class="fas fa-angle-right"></i></a>
 		</p>
 
 	</div>
@@ -30,7 +34,7 @@
 
 		<div class="row">
 			<div class="col-md-6">
-				<a href="#" class="bnr" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/bnr_about@2x.jpg')">
+				<a href="<?= get_permalink(52) ?>" class="bnr" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/bnr_about@2x.jpg')">
 					<div class="bnr_inner">
 						わたしたちについて<span>ABOUT</span>
 					</div>
@@ -38,7 +42,7 @@
 			</div>
 
 			<div class="col-md-6">
-				<a href="#" class="bnr" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/bnr_access@2x.jpg')">
+				<a href="<?= get_permalink(55) ?>" class="bnr" style="background-image: url('<?= get_template_directory_uri(); ?>/assets/img/home/bnr_access@2x.jpg')">
 					<div class="bnr_inner">
 						アクセス<span>ACCESS</span>
 					</div>
@@ -67,7 +71,7 @@
 		</div>
 
 		<div class="sec_btn">
-			<a href="" class="btn btn-default">メールフォーム<i class="fas fa-angle-right"></i></a>
+			<a href="<?= home_url('/contact/') ?>" class="btn btn-default">メールフォーム<i class="fas fa-angle-right"></i></a>
 		</div>
 	</div>
 </section>
