@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="<?= get_template_directory_uri(); ?>/assets/css/styles.min.css" rel="stylesheet">
+    <link href="<?= get_template_directory_uri(); ?>/assets/css/custom-style.css" rel="stylesheet">
     <?php
     // Font Awesomeを重複して読み込まないようにする
     wp_enqueue_style('font-awesome', 'https://use.fontawesome.com/releases/v5.6.1/css/all.css');
@@ -29,10 +30,8 @@
                 <p><?= bloginfo('description'); ?></p>
             </div>
 
-            <form action="<?= home_url('/') ?>" method="get" class="header_search">
-                <input type="text" placeholder="キーワードを入力" name="s" value="<?= the_search_query() ?>">
-                <i class="fas fa-search"></i>
-            </form>
+            <?= get_search_form() ?>
+
         </div>
 
         <div class="header_links">

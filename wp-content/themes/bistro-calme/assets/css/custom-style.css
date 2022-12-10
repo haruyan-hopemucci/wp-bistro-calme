@@ -1,0 +1,6 @@
+/**
+ * 書籍とは関係なく任意に用意したCSSファイル
+ */
+.text-center {
+  text-align: center !important;
+}
