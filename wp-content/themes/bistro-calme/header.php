@@ -81,3 +81,5 @@
         <script src="<?= get_template_directory_uri(); ?>/assets/js/home.js"></script>
 
     <?php endif; ?>
+
+    <?= get_template_part('template-parts/breadcrumb') ?>
