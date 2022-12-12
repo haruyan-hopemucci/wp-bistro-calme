@@ -31,3 +31,14 @@ function my_document_title_parts($title)
  * アイキャッチ画像を使用可能にする
  */
 add_theme_support('post-thumbnails');
+
+/**
+ * デフォルトだとwpから送信するメールのfromが"wordpress@localhost"となり
+ * バリデーションに引っかかるので変更する
+ */
+add_filter('wp_mail_from', 'replace_wp_mail_from');
+
+function replace_wp_mail_from($email)
+{
+    return 'haruyan@haruyan-mac.localdomain';
+}
