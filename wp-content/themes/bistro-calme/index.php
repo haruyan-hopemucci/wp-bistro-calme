@@ -22,6 +22,11 @@
                     <?php endif; ?>
 
                 </div>
+
+                <?php if (function_exists('wp_pagenavi')) {
+                    wp_pagenavi();
+                } ?>
+
             </div>
 
             <div class="col-12 col-md-3">

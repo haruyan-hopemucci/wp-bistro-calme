@@ -20,10 +20,11 @@
 			<?php endif; ?>
 
 		</div>
+		<?php if (function_exists('wp_pagenavi')) {
+			wp_pagenavi();
+		} ?>
 	</div>
 
 </main>
-
-<div class="pagetop js-pagetop"><i class="fas fa-angle-up"></i>PAGE TOP</div>
 
 <?= get_footer() ?>
