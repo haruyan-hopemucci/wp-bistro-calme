@@ -6,7 +6,11 @@
     ?>
         <p><?php comments_number('コメントはありません。', 'コメントが1件だけあります。', 'コメントが%件もあります！'); ?></p>
         <ol class="commentlist">
-            <?php wp_list_comments(); ?>
+            <?php
+            $comment_list_params = [];
+            $comment_list_params['avatar_size'] = 50;
+            wp_list_comments($comment_list_params);
+            ?>
         </ol>
     <?php
         paginate_comments_links();
