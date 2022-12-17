@@ -56,3 +56,23 @@ function my_comment_form_default_fields($args)
     $args['author'] = '';
     return $args;
 }
+
+/**
+ * クエリを実行する直前に実行されるフック
+ * クエリのパラメータを動的に変更したい場合に使用する
+ */
+add_action('pre_get_posts', 'my_pre_get_post');
+function my_pre_get_post(WP_Query $query)
+{
+    //管理画面、メインクエリ以外はスルーする
+    if (is_admin() || !$query->is_main_query()) {
+        error_log('my_pre_get_post > through block');
+        return;
+    }
+    // それ以外で、ホーム画面のメインループを3回に制限する
+    if ($query->is_home()) {
+        error_log('my_pre_get_post > query->is_home');
+        $query->set('posts_per_page', 3);
+        return;
+    }
+}
