@@ -38,6 +38,7 @@
 			</div>
 
 			<div class="col-12 col-md-3">
+				<?= get_sidebar('latests'); ?>
 				<?= get_sidebar('categories'); ?>
 				<?= get_sidebar('archives'); ?>
 			</div>
