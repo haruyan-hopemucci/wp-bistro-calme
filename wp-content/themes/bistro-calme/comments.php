@@ -4,7 +4,7 @@
     comment_form($comment_form_params);
     if (have_comments()) :
     ?>
-        <p><?php comments_number(); ?></p>
+        <p><?php comments_number('コメントはありません。', 'コメントが1件だけあります。', 'コメントが%件もあります！'); ?></p>
         <ol class="commentlist">
             <?php wp_list_comments(); ?>
         </ol>
