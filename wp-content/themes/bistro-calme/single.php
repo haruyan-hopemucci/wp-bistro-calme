@@ -22,6 +22,9 @@
 								<div class="content">
 									<?= the_content(); ?>
 								</div>
+
+								<?= comments_template() ?>
+
 							</div>
 
 							<div class="postLinks">
