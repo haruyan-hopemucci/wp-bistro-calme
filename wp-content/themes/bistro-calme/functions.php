@@ -42,3 +42,17 @@ function replace_wp_mail_from($email)
 {
     return 'haruyan@haruyan-mac.localdomain';
 }
+
+/**
+ * コメント欄のフォームアイテムを削除したりする設定はfunctions.phpにて設定する
+ */
+// コメントフォームの設定を通すフィルタ関数を作成
+add_filter('comment_form_default_fields', 'my_comment_form_default_fields');
+function my_comment_form_default_fields($args)
+{
+    // 対応するargsのハッシュを空にすることでフィールドを削除できる
+    $args['url'] = '';
+    $args['email'] = '';    // 名前(author)やemailを削除する場合は、コメント設定の「email必須」をオフにすること。
+    $args['author'] = '';
+    return $args;
+}
