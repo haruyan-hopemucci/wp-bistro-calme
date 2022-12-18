@@ -66,7 +66,6 @@ function my_pre_get_post(WP_Query $query)
 {
     //管理画面、メインクエリ以外はスルーする
     if (is_admin() || !$query->is_main_query()) {
-        error_log('my_pre_get_post > through block');
         return;
     }
     // それ以外で、ホーム画面のメインループを3回に制限する
