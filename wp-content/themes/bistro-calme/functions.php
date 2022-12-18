@@ -71,7 +71,6 @@ function my_pre_get_post(WP_Query $query)
     }
     // それ以外で、ホーム画面のメインループを3回に制限する
     if ($query->is_home()) {
-        error_log('my_pre_get_post > query->is_home');
         $query->set('posts_per_page', 3);
         return;
     }
