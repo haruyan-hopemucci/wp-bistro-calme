@@ -28,7 +28,7 @@ $kinds = get_terms(array('taxonomy' => 'kind'));
                 <div class="row justify-content-center">
                     <?php
                     //メニューの投稿タイプを選択 1ページのアイテム数は無制限とする
-                    $args = array('post_type' => 'menu', 'post_per_page' => -1);
+                    $args = array('post_type' => 'menu', 'posts_per_page' => -1);
                     // 絞り込みクエリの作成
                     $taxquerysp = array('relation' => 'AND');
                     $taxquerysp[] = array(
